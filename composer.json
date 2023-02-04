@@ -1,0 +1,35 @@
+{
+    "name": "naykel/devit",
+    "description": "Hacks for local development",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nathan Watts",
+            "email": "nathan@naykel.com.au",
+            "homepage": "https://naykel.com.au"
+        }
+    ],
+    "homepage": "https://naykel.com.au",
+    "keywords": [
+        "Laravel",
+        "Naykel"
+    ],
+    "require": {
+        "php": "^8.0.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Naykel\\Devit\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Naykel\\Devit\\DevitServiceProvider"
+            ]
+        }
+    }
+}
