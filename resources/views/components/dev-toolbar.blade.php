@@ -5,7 +5,8 @@
         <div class="container flex space-between va-c">
 
             <div class="flex space-x">
-                <a href="{{ route('login-user1') }}">Quick Login</a>
+                <a href="{{ route('login-super') }}">Login Super</a>
+                <a href="{{ route('login-user') }}">Login User</a>
                 <a href="/admin">Admin</a>
                 @if(Route::has('pages.all'))
                     <a href="{{ route('pages.all') }}">All Pages</a>
@@ -15,18 +16,15 @@
                 @endif
             </div>
 
-            @if(Route::has('login'))
-
-                <div>
-
-                    @auth
-                        <x-authit-account-dropdown />
-                    @endauth
-
-                </div>
-
-            @endif
+            @auth
+                <x-authit-account-dropdown />
+            @else
+                <a class="hover:txt-secondary mr" href="{{ route('login') }}">Sign In</a>
+                <a class="hover:txt-secondary " href="{{ route('register') }}">{{ __('Register') }}</a>
+            @endauth
 
         </div>
+
     </div>
+
 @endif
