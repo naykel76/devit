@@ -4,7 +4,9 @@
 
         <div class="container flex space-between va-c">
 
-            <div class="flex space-x">
+            <div class="flex space-x va-c">
+                <x-gt-sidebar layout="burger-button-main" />
+
                 <a href="{{ route('login-super') }}">Login Super</a>
                 <a href="{{ route('login-user') }}">Login User</a>
                 <a href="/admin">Admin</a>
@@ -19,8 +21,10 @@
             @auth
                 <x-authit-account-dropdown />
             @else
-                <a class="hover:txt-secondary mr" href="{{ route('login') }}">Sign In</a>
-                <a class="hover:txt-secondary " href="{{ route('register') }}">{{ __('Register') }}</a>
+                <div>
+                    <a class="hover:txt-secondary mr" href="{{ route('login') }}">Sign In</a>
+                    <a class="hover:txt-secondary " href="{{ route('register') }}">{{ __('Register') }}</a>
+                </div>
             @endauth
 
         </div>
