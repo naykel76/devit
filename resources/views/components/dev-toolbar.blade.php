@@ -7,6 +7,9 @@
             <div class="flex space-x va-c">
                 <x-gt-sidebar layout="burger-button-main" />
 
+                {{-- @if (Route::has('login-super'))
+
+                @endif --}}
                 <a href="{{ route('login-super') }}">Login Super</a>
                 <a href="{{ route('login-user') }}">Login User</a>
                 <a href="/admin">Admin</a>
