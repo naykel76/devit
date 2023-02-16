@@ -25,7 +25,7 @@
             @auth
                 <x-authit-account-dropdown />
             @else
-                @if(config('naykel.allow_registrations'))
+                @if(config('naykel.allow_register'))
                     <div>
                         <a class="hover:txt-secondary mr" href="{{ route('login') }}">Sign In</a>
                         <a class="hover:txt-secondary " href="{{ route('register') }}">{{ __('Register') }}</a>
