@@ -6,7 +6,13 @@
 
             <div class="flex space-x va-c">
 
-                <x-gt-sidebar layout="burger-button-main" class="btn secondary outline" />
+                <x-gt-sidebar layout="burger-button-main" class="btn secondary outline">
+                    <x-slot name="top">
+                        @if(Route::has('register'))
+                            <x-authit::login-register-buttons />
+                        @endif
+                    </x-slot>
+                </x-gt-sidebar>
 
                 <a href="{{ route('login-super') }}">Login Super</a>
                 <a href="{{ route('login-user') }}">Login User</a>
@@ -20,6 +26,9 @@
                     <a href="{{ route('dev') }}">Dev</a>
                 @endif
 
+                @if(Route::has('test-email'))
+                    <a href="{{ route('test-email') }}">Test Email</a>
+                @endif
             </div>
 
             @auth

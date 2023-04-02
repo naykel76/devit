@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['web'])->group(function () {
@@ -18,5 +19,12 @@ Route::middleware(['web'])->group(function () {
         })->name('login-user');
 
         Route::view('dev', 'dev')->name('dev');
+
+        Route::get('test-email', function () {
+            Mail::raw('Email Test', function ($msg) {
+                $msg->to(config('mail.from.address'))->subject('Test Email');
+            });
+            return back()->with('message', 'email success');
+        })->name('test-email');
     }
 });
