@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.4
+- Changed: login user to loginUsingId(2);
+
 ## 1.0.3
 - add email test route
 

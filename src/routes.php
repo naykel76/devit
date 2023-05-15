@@ -13,8 +13,7 @@ Route::middleware(['web'])->group(function () {
         })->name('login-super');
 
         Route::get('/login-user', function () {
-            $uid = \App\Models\User::whereName('Jimmy Peters')->pluck('id');
-            Auth::loginUsingId($uid);
+            Auth::loginUsingId(2);
             return back();
         })->name('login-user');
 
