@@ -12,8 +12,13 @@ Route::middleware(['web'])->group(function () {
             return back();
         })->name('login-super');
 
-        Route::get('/login-user', function () {
+        Route::get('/login-admin', function () {
             Auth::loginUsingId(2);
+            return back();
+        })->name('login-admin');
+
+        Route::get('/login-user', function () {
+            Auth::loginUsingId(3);
             return back();
         })->name('login-user');
 

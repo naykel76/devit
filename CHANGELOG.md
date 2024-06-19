@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.0
+- Updated: Toolbar
+
 ## 1.0.4
 - Changed: login user to loginUsingId(2);
 
