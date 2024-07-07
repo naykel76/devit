@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1
+- Added: Hide on small screens
+  
 ## 1.1.0
 - Updated: Toolbar
 
