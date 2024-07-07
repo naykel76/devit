@@ -14,12 +14,12 @@ Route::middleware(['web'])->group(function () {
 
         Route::get('/login-admin', function () {
             Auth::loginUsingId(2);
-            return back();
+            return redirect()->route('admin.dashboard');
         })->name('login-admin');
 
         Route::get('/login-user', function () {
             Auth::loginUsingId(3);
-            return back();
+            return redirect()->route('user.dashboard');
         })->name('login-user');
 
         Route::view('dev', 'dev')->name('dev');

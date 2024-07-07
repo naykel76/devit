@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.2
+- Updated: redirect after login
+  
 ## 1.1.1
 - Added: Hide on small screens
   
