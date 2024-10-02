@@ -9,7 +9,7 @@ Route::middleware(['web'])->group(function () {
 
         Route::get('/login-super', function () {
             Auth::loginUsingId(1);
-            return back();
+            return redirect()->route('admin.dashboard');
         })->name('login-super');
 
         Route::get('/login-admin', function () {

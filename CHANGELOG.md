@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.3
+- Updated: redirect after login for super user
+  
 ## 1.1.2
 - Updated: redirect after login
   
