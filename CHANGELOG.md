@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.0
+- Removed `dev` route from `routes.php` to allow app to handle it
+
 ## 1.1.3
 - Updated: redirect after login for super user
   

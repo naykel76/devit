@@ -22,8 +22,6 @@ Route::middleware(['web'])->group(function () {
             return redirect()->route('user.dashboard');
         })->name('login-user');
 
-        Route::view('dev', 'dev')->name('dev');
-
         Route::get('test-email', function () {
             Mail::raw('Email Test', function ($msg) {
                 $msg->to(config('mail.from.address'))->subject('Test Email');
