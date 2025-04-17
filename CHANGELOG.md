@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.0
+- Update dependencies for laravel 12
+
 ## 1.2.0
 - Removed `dev` route from `routes.php` to allow app to handle it
 
