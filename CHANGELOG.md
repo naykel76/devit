@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.1
+- Update hidden class
+
 ## 1.3.0
 - Update dependencies for laravel 12
 

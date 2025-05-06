@@ -1,6 +1,6 @@
 @if (App::environment('local'))
 
-    <div class="dark py-05 hidden md:block">
+    <div class="dark py-05">
 
         <div class="container flex space-between va-c">
 
