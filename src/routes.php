@@ -8,37 +8,53 @@ Route::middleware(['web'])->group(function () {
 
     if (app()->isLocal()) {
 
-        Route::get('/login-super', function () {
-            if (! Auth::loginUsingId(1)) {
-                return back()->with('error', 'Super user not found');
-            }
+        $userIds = config('devit.user_ids', []);
 
-            return back()->with('message', 'Logged in as super user');
-        })->name('login-super');
+        if ($id = $userIds['super'] ?? null) {
+            Route::get('/login-super', function () use ($id) {
+                if (! Auth::loginUsingId($id)) {
+                    return back()->with('error', 'Super user not found');
+                }
 
-        Route::get('/login-admin', function () {
-            if (! Auth::loginUsingId(2)) {
-                return back()->with('error', 'Admin user not found');
-            }
+                return back()->with('message', 'Logged in as super user');
+            })->name('login-super');
+        }
 
-            return back()->with('message', 'Logged in as admin user');
-        })->name('login-admin');
+        if ($id = $userIds['admin'] ?? null) {
+            Route::get('/login-admin', function () use ($id) {
+                if (! Auth::loginUsingId($id)) {
+                    return back()->with('error', 'Admin user not found');
+                }
 
-        Route::get('/login-user', function () {
-            if (! Auth::loginUsingId(3)) {
-                return back()->with('error', 'User not found');
-            }
+                return back()->with('message', 'Logged in as admin user');
+            })->name('login-admin');
+        }
 
-            return redirect()->route('user.dashboard')->with('message', 'Logged in as user');
-        })->name('login-user');
+        if ($id = $userIds['user'] ?? null) {
+            Route::get('/login-user', function () use ($id) {
+                if (! Auth::loginUsingId($id)) {
+                    return back()->with('error', 'User not found');
+                }
 
-        Route::get('/login-user2', function () {
-            if (! Auth::loginUsingId(4)) {
-                return back()->with('error', 'User2 not found');
-            }
+                $redirectRoute = config('devit.redirect_after_login_user');
 
-            return back()->with('message', 'Logged in as user2');
-        })->name('login-user2');
+                if ($redirectRoute && Route::has($redirectRoute)) {
+                    return redirect()->route($redirectRoute)->with('message', 'Logged in as user');
+                }
+
+                return back()->with('message', 'Logged in as user');
+            })->name('login-user');
+        }
+
+        if ($id = $userIds['user2'] ?? null) {
+            Route::get('/login-user2', function () use ($id) {
+                if (! Auth::loginUsingId($id)) {
+                    return back()->with('error', 'User2 not found');
+                }
+
+                return back()->with('message', 'Logged in as user2');
+            })->name('login-user2');
+        }
 
         Route::get('test-email', function () {
             try {

@@ -1,6 +1,7 @@
 {
     "name": "naykel/devit",
-    "description": "Hacks for local development",
+    "description": "Laravel development toolbar for quick user switching and testing",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -12,11 +13,14 @@
     "homepage": "https://naykel.com.au",
     "keywords": [
         "Laravel",
-        "Naykel"
+        "Naykel",
+        "development",
+        "dev",
+        "local"
     ],
     "require": {
         "php": "^8.2",
-        "laravel/framework": "^12.0"
+        "laravel/framework": "^11.0|^12.0"
     },
     "require-dev": {
         "laravel/pint": "^1.27"
@@ -35,5 +39,7 @@
                 "Naykel\\Devit\\DevitServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

@@ -23,6 +23,7 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 
+composer.lock
 /.agents
 /.cursor
 /.github
