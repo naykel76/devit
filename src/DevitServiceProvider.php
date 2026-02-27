@@ -2,7 +2,6 @@
 
 namespace Naykel\Devit;
 
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class DevitServiceProvider extends ServiceProvider
@@ -23,7 +22,5 @@ class DevitServiceProvider extends ServiceProvider
                 __DIR__ . '/../config/devit.php' => config_path('devit.php'),
             ], 'devit-config');
         }
-
-        Blade::anonymousComponentNamespace(__DIR__ . '/../resources/views/components', 'devit');
     }
 }

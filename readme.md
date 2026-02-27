@@ -11,48 +11,46 @@ src="https://img.shields.io/packagist/l/naykel/devit" alt="License"></a>
 
 Dev toolbar for Naykel Laravel applications.
 
-**This package should only be used in a local development environment.** Do not
-install or enable it in production; routes and toolbar are gated by
-`APP_ENV=local` only.
+**This package is for local development only.**
+
+It must be installed as a dev dependency and must not exist in production
+deployments.
 
 ## Installation
 
-Install the package via Composer:
+Install via Composer:
 
 ```bash
 composer require naykel/devit --dev
 ```
 
-The service provider will be automatically registered via Laravel's package
-discovery.
+The service provider is registered automatically via Laravel package discovery.
 
 ## Usage
 
-### Adding the Toolbar
+Add the toolbar to your layout file (typically
+`resources/views/layouts/app.blade.php`):
 
-Include the toolbar component in your layout file (typically in
-`resources/views/layouts/app.blade.php` or similar):
-
-```html +code-blade
-<x-devit::toolbar />
+```blade
+@includeIf('devit::components.toolbar')
 ```
 
-The toolbar only displays in the local environment (`APP_ENV=local`).
+The toolbar only renders when `APP_ENV=local`.
 
-### Features
+## Features
 
 The toolbar provides quick access to the following development routes:
 
-- **Super User** - Log in as user ID 1
-- **Admin User** - Log in as user ID 2
-- **User** - Log in as user ID 3
-- **User2** - Log in as user ID 4
-- **Site Pages** - Link to pages.all route (if available)
-- **Dev** - Link to dev route (if available)
-- **Test Email** - Send a test email to verify mail configuration
-- **Admin** - Link to admin.dashboard route (if available)
+* **Super User** – Log in as user ID 1
+* **Admin User** – Log in as user ID 2
+* **User** – Log in as user ID 3
+* **User2** – Log in as user ID 4
+* **Site Pages** – Link to `pages.all` route (if available)
+* **Dev** – Link to `dev` route (if available)
+* **Test Email** – Send a test email to verify mail configuration
+* **Admin** – Link to `admin.dashboard` route (if available)
 
-### Available Routes
+## Available Routes (Local Only)
 
 When in the local environment, the following routes are automatically
 registered:
@@ -68,27 +66,20 @@ registered:
 Test email is sent to `config('mail.from.address')` so you can verify mail
 configuration locally.
 
-### Configuration
+## Configuration
 
-Publish the config to customize (optional):
+Publish the config (optional):
 
 ```bash
 php artisan vendor:publish --tag=devit-config
 ```
 
-Or merge in your app by publishing and editing `config/devit.php`:
+Edit `config/devit.php`:
 
-- **`user_ids`** – Array of keys `super`, `admin`, `user`, `user2` with user
-  IDs. Set a key to `null` to disable that login route.
-- **`redirect_after_login_user`** – Route name to redirect to after "Login as
-  User" (e.g. `'user.dashboard'`). Default is `null`, which redirects back to
-  the previous page so the package works in apps that don't define a user
-  dashboard route.
-
-### Requirements
-
-- PHP ^8.2
-- Laravel ^12.0
+* `user_ids` – Array of keys `super`, `admin`, `user`, `user2` with user IDs.
+  Set a key to `null` to disable that login route.
+* `redirect_after_login_user` – Route name to redirect after login as user.
+  Default is `null`, which redirects back to the previous page.
 
 ## License
 
