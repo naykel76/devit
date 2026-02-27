@@ -32,10 +32,8 @@ Add the toolbar to your layout file (typically
 `resources/views/layouts/app.blade.php`):
 
 ```blade
-@includeIf('devit::components.toolbar')
+@includeIf('devit::toolbar')
 ```
-
-The toolbar only renders when `APP_ENV=local`.
 
 ## Features
 
